@@ -6,6 +6,7 @@ export default function JokesIndexRoute() {
 				I was wondering whe the frisbee was getting bigger, then it hit
 				me
 			</p>
+			<button className="btn">Hello daisyUI</button>
 		</div>
 	);
 }
