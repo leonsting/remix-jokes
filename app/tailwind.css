@@ -2168,3 +2168,27 @@ html {
   --tw-bg-opacity: 1;
   background-color: hsl(var(--b1) / var(--tw-bg-opacity));
 }
+
+.font-baloo {
+  font-family: baloo, sans-serif;
+}
+
+.font-adelia {
+  font-family: ADELIA, cursive;
+}
+
+@font-face {
+  font-family: "ADELIA";
+
+  src: url("/fonts/ADELIA.otf") format("otf");
+}
+
+@font-face {
+  font-family: "baloo";
+
+  src: url("/fonts/baloo.woff") format("woff");
+
+  font-weight: normal;
+
+  font-style: normal;
+}
