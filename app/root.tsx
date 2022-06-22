@@ -9,21 +9,11 @@ import {
 } from "@remix-run/react";
 import { LinksFunction } from "@remix-run/node";
 
-import stylesUrl from "~/styles/index.css";
-import tailwindStyles from "./tailwind.css";
-
 export const meta: MetaFunction = () => ({
 	charset: "utf-8",
-	title: "New Remix App",
+	title: "Remix: So great, it's funny!",
 	viewport: "width=device-width,initial-scale=1",
 });
-
-export const links: LinksFunction = () => {
-	return [
-		{ rel: "stylesheet", href: stylesUrl },
-		{ rel: "stylesheet", href: tailwindStyles },
-	];
-};
 
 export default function App() {
 	return (
