@@ -11,7 +11,7 @@ import { LinksFunction } from "@remix-run/node";
 
 export const meta: MetaFunction = () => ({
 	charset: "utf-8",
-	title: "Remix: So great, it's funny!",
+	title: "Taverse",
 	viewport: "width=device-width,initial-scale=1",
 });
 
