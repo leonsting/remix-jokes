@@ -33,8 +33,8 @@ export const loader: LoaderFunction = () => {
 			album: "Vì mẹ anh bắt chia tay(Single)",
 			track: "$orries",
 			year: 2022,
-			coverSrc: "/images/songs/vmabct.jpg",
-			src: "/audio/songs/vmabct.mp3",
+			coverSrc: "https://res.cloudinary.com/leonsting/image/upload/v1656430616/taverse/audio_cover/vmabct_huwbfp.jpg",
+			src: "https://res.cloudinary.com/leonsting/video/upload/v1656430319/taverse/audio/vmabct_j6658m.mp3",
 		},
 		{
 			title: "Thiêu Thân",
@@ -42,8 +42,8 @@ export const loader: LoaderFunction = () => {
 			album: "Thiểu Thân(Single)",
 			track: "$orries",
 			year: 2022,
-			coverSrc: "/images/songs/tt.jpg",
-			src: "/audio/songs/tt.mp3",
+			coverSrc: "https://res.cloudinary.com/leonsting/image/upload/v1656430616/taverse/audio_cover/tt_kylfbs.jpg",
+			src: "https://res.cloudinary.com/leonsting/video/upload/v1656430321/taverse/audio/tt_c2231a.mp3",
 		},
 	];
 	return json<LoaderData>({ songs });
