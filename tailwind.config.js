@@ -6,6 +6,7 @@ module.exports = {
 			fontFamily: {
 				adelia: ["ADELIA", "cursive"],
 				baloo: ["baloo", "sans-serif"],
+				IBM: ["IBM Plex Mono", "monospace"],
 			},
 		},
 	},
