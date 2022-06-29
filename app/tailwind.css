@@ -2811,6 +2811,10 @@ html {
   top: 2rem;
 }
 
+.bottom-0 {
+  bottom: 0px;
+}
+
 .m-0 {
   margin: 0px;
 }
@@ -2861,6 +2865,10 @@ html {
   height: 1.25rem;
 }
 
+.h-20 {
+  height: 5rem;
+}
+
 .w-96 {
   width: 24rem;
 }
@@ -2871,6 +2879,10 @@ html {
 
 .w-5 {
   width: 1.25rem;
+}
+
+.w-full {
+  width: 100%;
 }
 
 .max-w-md {
@@ -2903,6 +2915,10 @@ html {
 
 .gap-2 {
   gap: 0.5rem;
+}
+
+.rounded {
+  border-radius: 0.25rem;
 }
 
 .bg-base-100 {
@@ -3001,11 +3017,6 @@ html {
 .text-base-300 {
   --tw-text-opacity: 1;
   color: hsl(var(--b3, var(--b2)) / var(--tw-text-opacity));
-}
-
-.text-red-500 {
-  --tw-text-opacity: 1;
-  color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 
 @font-face {
