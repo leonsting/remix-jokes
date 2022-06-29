@@ -55,7 +55,7 @@ export function Player({ className, songs }: PlayerProps) {
 
 			return temp;
 		});
-		setIsPlaying(false);
+		setIsPlaying(true);
 	};
 
 	const skipToPerviousSong = () => {
@@ -68,7 +68,7 @@ export function Player({ className, songs }: PlayerProps) {
 			}
 			return temp;
 		});
-		setIsPlaying(false);
+		setIsPlaying(true);
 	};
 
 	return (
@@ -103,7 +103,12 @@ export function Player({ className, songs }: PlayerProps) {
 				</div>
 			</div>
 			<div className="mt-4 mx-auto max-w-md">
-				<PlayerDetails isPlaying={isPlaying} song={currentSong} />
+				<PlayerDetails
+					key={currentSong.src}
+					isPlaying={isPlaying}
+					song={currentSong}
+					onEnded={skipToNextSong}
+				/>
 				<PlayerControls
 					isPlaying={isPlaying}
 					setIsPlaying={setIsPlaying}

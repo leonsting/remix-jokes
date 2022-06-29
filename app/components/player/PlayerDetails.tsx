@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { SyntheticEvent, useEffect, useRef, useState } from "react";
 import { Wave } from "@foobar404/wave";
 import { IAnimation } from "@foobar404/wave/dist/src/types";
 
@@ -7,9 +7,10 @@ import { Song } from "./Player";
 interface PlayerDetailsProps {
 	song: Song;
 	isPlaying: boolean;
+	onEnded: (event:SyntheticEvent<HTMLAudioElement, Event>) => void;
 }
 
-function PlayerDetails({ isPlaying, song }: PlayerDetailsProps) {
+function PlayerDetails({ isPlaying, song, onEnded }: PlayerDetailsProps) {
 	const audioElement = useRef<HTMLAudioElement>(null);
 	let canvasElm = useRef<HTMLCanvasElement | null>(null);
 
@@ -155,7 +156,7 @@ function PlayerDetails({ isPlaying, song }: PlayerDetailsProps) {
 
 	return (
 		<div className="relative">
-			<audio crossOrigin="anonymous" src={song.src} ref={audioElement}></audio>
+			<audio onEnded={onEnded} crossOrigin="anonymous" src={song.src} ref={audioElement}></audio>
 			<div className="relative">
 				<figure>
 					<img height="384" src={song?.coverSrc} alt={song.title} />
