@@ -7,24 +7,30 @@ import {
 
 export interface PlayerControlsProps {
 	isPlaying?: Boolean;
-	skipSong: (skipSong?: boolean) => void;
 	setIsPlaying: (isPlaying: boolean) => void;
+	next: () => void;
+	back: () => void;
 }
 
-function PlayerControls(props: PlayerControlsProps) {
+function PlayerControls({
+	isPlaying,
+	setIsPlaying,
+	next,
+	back,
+}: PlayerControlsProps) {
 	return (
 		<div className="flex justify-center items-center mb-4 gap-2">
 			<button
 				className="btn btn-circle btn-outline btn-info btn-xs"
-				onClick={() => props.skipSong(false)}
+				onClick={() => next()}
 			>
 				<RewindIcon className="h-5 w-5" />
 			</button>
 			<button
 				className="btn btn-circle btn-outline btn-info"
-				onClick={() => props.setIsPlaying(!props.isPlaying)}
+				onClick={() => setIsPlaying(!isPlaying)}
 			>
-				{props.isPlaying ? (
+				{isPlaying ? (
 					<PauseIcon className="h-5 w-5" />
 				) : (
 					<PlayIcon className="h-5 w-5" />
@@ -32,7 +38,7 @@ function PlayerControls(props: PlayerControlsProps) {
 			</button>
 			<button
 				className="btn btn-circle btn-outline btn-info btn-xs"
-				onClick={() => props.skipSong()}
+				onClick={() => back()}
 			>
 				<FastForwardIcon className="h-5 w-5" />
 			</button>

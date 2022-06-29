@@ -29,20 +29,22 @@ export const loader: LoaderFunction = () => {
 	const songs: Song[] = [
 		{
 			title: "Vì mẹ anh bắt chia tay",
-			artist: "Châu Đăng Khoa",
+			artist: "Miu Lê x Karik",
 			album: "Vì mẹ anh bắt chia tay(Single)",
 			track: "$orries",
 			year: 2022,
-			coverSrc: "https://res.cloudinary.com/leonsting/image/upload/v1656430616/taverse/audio_cover/vmabct_huwbfp.jpg",
+			coverSrc:
+				"https://res.cloudinary.com/leonsting/image/upload/v1656430616/taverse/audio_cover/vmabct_huwbfp.jpg",
 			src: "https://res.cloudinary.com/leonsting/video/upload/v1656430319/taverse/audio/vmabct_j6658m.mp3",
 		},
 		{
 			title: "Thiêu Thân",
-			artist: "B'Ray",
+			artist: "B Ray x Sofia",
 			album: "Thiểu Thân(Single)",
 			track: "$orries",
 			year: 2022,
-			coverSrc: "https://res.cloudinary.com/leonsting/image/upload/v1656430616/taverse/audio_cover/tt_kylfbs.jpg",
+			coverSrc:
+				"https://res.cloudinary.com/leonsting/image/upload/v1656430616/taverse/audio_cover/tt_kylfbs.jpg",
 			src: "https://res.cloudinary.com/leonsting/video/upload/v1656430321/taverse/audio/tt_c2231a.mp3",
 		},
 	];
@@ -51,18 +53,6 @@ export const loader: LoaderFunction = () => {
 
 export default function Index() {
 	const { songs } = useLoaderData() as LoaderData;
-	const [currentSongIndex, setCurrentSongIndex] = useState(0);
-	const [nextSongIndex, setNextSongIndex] = useState(currentSongIndex + 1);
-
-	useEffect(() => {
-		setNextSongIndex(() => {
-			if (currentSongIndex + 1 > songs.length - 1) {
-				return 0;
-			} else {
-				return currentSongIndex + 1;
-			}
-		});
-	}, [currentSongIndex]);
 
 	return (
 		<div className="relative font-IBM">
@@ -77,9 +67,6 @@ export default function Index() {
 
 				<Player
 					className="max-w-md mr-8 ml-28"
-					currentSongIndex={currentSongIndex}
-					setCurrentSongIndex={setCurrentSongIndex}
-					nextSongIndex={nextSongIndex}
 					songs={songs}
 				/>
 			</div>

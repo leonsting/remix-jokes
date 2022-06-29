@@ -1,4 +1,5 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useMemo } from "react";
+import { Link } from "@remix-run/react";
 import {
 	HeartIcon,
 	RefreshIcon,
@@ -26,55 +27,48 @@ export interface Song {
 interface PlayerProps {
 	className?: string;
 	songs: Song[];
-	setCurrentSongIndex: React.Dispatch<React.SetStateAction<number>>;
-	currentSongIndex: number;
-	nextSongIndex: number;
 }
 
-export function Player({
-	className,
-	songs,
-	setCurrentSongIndex,
-	currentSongIndex,
-	nextSongIndex,
-}: PlayerProps) {
-	const audioElement = useRef<HTMLAudioElement>(null);
+export function Player({ className, songs }: PlayerProps) {
+	const [currentSongIndex, setCurrentSongIndex] = useState(0);
 	const [isPlaying, setIsPlaying] = useState(false);
+
+	const nextSongIndex = useMemo(() => {
+		if (currentSongIndex + 1 > songs.length - 1) {
+			return 0;
+		} else {
+			return currentSongIndex + 1;
+		}
+	}, [currentSongIndex]);
 
 	const currentSong = songs[currentSongIndex];
 	const nextSong = songs[nextSongIndex];
 
-	useEffect(() => {
-		if (isPlaying) {
-			audioElement?.current?.play();
-		} else {
-			audioElement?.current?.pause();
-		}
-	});
+	const skipToNextSong = () => {
+		setCurrentSongIndex(() => {
+			let temp = currentSongIndex;
+			temp++;
 
-	const SkipSong = (forwards = true) => {
-		if (forwards) {
-			setCurrentSongIndex(() => {
-				let temp = currentSongIndex;
-				temp++;
+			if (temp > songs.length - 1) {
+				temp = 0;
+			}
 
-				if (temp > songs.length - 1) {
-					temp = 0;
-				}
+			return temp;
+		});
+		setIsPlaying(false);
+	};
 
-				return temp;
-			});
-		} else {
-			setCurrentSongIndex(() => {
-				let temp = currentSongIndex;
-				temp--;
+	const skipToPerviousSong = () => {
+		setCurrentSongIndex(() => {
+			let temp = currentSongIndex;
+			temp--;
 
-				if (temp < 0) {
-					temp = songs.length - 1;
-				}
-				return temp;
-			});
-		}
+			if (temp < 0) {
+				temp = songs.length - 1;
+			}
+			return temp;
+		});
+		setIsPlaying(false);
 	};
 
 	return (
@@ -109,26 +103,32 @@ export function Player({
 				</div>
 			</div>
 			<div className="mt-4 mx-auto max-w-md">
-				<audio src={currentSong.src} ref={audioElement}></audio>
-				<PlayerDetails song={currentSong} />
+				<PlayerDetails isPlaying={isPlaying} song={currentSong} />
 				<PlayerControls
 					isPlaying={isPlaying}
 					setIsPlaying={setIsPlaying}
-					skipSong={SkipSong}
+					next={skipToNextSong}
+					back={skipToPerviousSong}
 				/>
 				<div className="flex justify-between pt-2 px-4 pb-4 text-primary">
-					<a href="#" className="btn glass text-primary btn-xs">
+					<Link to="/heart" className="btn glass text-primary btn-xs">
 						<HeartIcon className="w-5 h-5" />
-					</a>
-					<a href="#" className="btn glass text-primary btn-xs">
+					</Link>
+					<Link
+						to="/random"
+						className="btn glass text-primary btn-xs"
+					>
 						<SwitchVerticalIcon className="w-5 h-5" />
-					</a>
-					<a href="#" className="btn glass text-primary btn-xs">
+					</Link>
+					<Link
+						to="/refesh"
+						className="btn glass text-primary btn-xs"
+					>
 						<RefreshIcon className="w-5 h-5" />
-					</a>
-					<a href="#" className="btn glass text-primary btn-xs">
+					</Link>
+					<Link to="/more" className="btn glass text-primary btn-xs">
 						<DotsHorizontalIcon className="w-5 h-5" />
-					</a>
+					</Link>
 				</div>
 			</div>
 		</div>
