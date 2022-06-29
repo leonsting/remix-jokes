@@ -6,6 +6,7 @@ import {
 	Outlet,
 	Scripts,
 	ScrollRestoration,
+	useCatch,
 } from "@remix-run/react";
 import { LinksFunction } from "@remix-run/node";
 
@@ -30,4 +31,28 @@ export default function App() {
 			</body>
 		</html>
 	);
+}
+
+export function CatchBoundary() {
+	const caught = useCatch();
+
+	if (caught.status === 404) {
+		return (
+			<html>
+				<head>
+					<title>Oops!</title>
+					<Meta />
+					<Links />
+				</head>
+				<body>
+					<h1>
+						{caught.status} {caught.statusText}
+					</h1>
+					<Scripts />
+				</body>
+			</html>
+		);
+	}
+
+	throw new Error(`Unexpected caught response with status: ${caught.status}`);
 }
