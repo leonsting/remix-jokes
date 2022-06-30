@@ -51,3 +51,17 @@ rm -rf app
 # copy your app over
 cp -R ../my-old-remix-app/app app
 ```
+
+### Prismas
+
+Sau khi update `schema.prisma` run :
+
+```ssh
+npx prisma db push
+```
+
+Prisma seed
+
+```ssh
+npx prisma db seed
+```

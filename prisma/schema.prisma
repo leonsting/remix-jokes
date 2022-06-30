@@ -17,3 +17,16 @@ model Joke {
   name       String
   content    String
 }
+
+model Song {
+  id         String   @id @default(uuid())
+  title      String
+	artist     String
+	album      String
+	track      String
+	year       Int
+	coverSrc   String
+	src        String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}

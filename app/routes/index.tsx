@@ -1,9 +1,11 @@
-import { useState, useEffect } from "react";
 import { json, LinksFunction, LoaderFunction } from "@remix-run/node";
-import { BeakerIcon } from "@heroicons/react/solid";
 import Spline from "@splinetool/react-spline";
 
-import { Player, Song } from "~/components/player";
+import type { Song } from "@prisma/client";
+
+import { Player } from "~/components/player";
+import { getSongs } from '~/models/song.server';
+
 
 // import stylesUrl from "~/styles/index.css";
 import { links as playerLinks } from "~/components/player";
@@ -25,29 +27,8 @@ type LoaderData = {
 	songs: Song[];
 };
 
-export const loader: LoaderFunction = () => {
-	const songs: Song[] = [
-		{
-			title: "Vì mẹ anh bắt chia tay",
-			artist: "Miu Lê x Karik",
-			album: "Vì mẹ anh bắt chia tay(Single)",
-			track: "$orries",
-			year: 2022,
-			coverSrc:
-				"https://res.cloudinary.com/leonsting/image/upload/v1656430616/taverse/audio_cover/vmabct_huwbfp.jpg",
-			src: "https://res.cloudinary.com/leonsting/video/upload/v1656430319/taverse/audio/vmabct_j6658m.mp3",
-		},
-		{
-			title: "Thiêu Thân",
-			artist: "B Ray x Sofia",
-			album: "Thiểu Thân(Single)",
-			track: "$orries",
-			year: 2022,
-			coverSrc:
-				"https://res.cloudinary.com/leonsting/image/upload/v1656430616/taverse/audio_cover/tt_kylfbs.jpg",
-			src: "https://res.cloudinary.com/leonsting/video/upload/v1656430321/taverse/audio/tt_c2231a.mp3",
-		},
-	];
+export const loader: LoaderFunction = async () => {
+	const songs = await getSongs();
 	return json<LoaderData>({ songs });
 };
 

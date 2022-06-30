@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useMemo } from "react";
+import React, { useState, useMemo } from "react";
 import { Link } from "@remix-run/react";
 import {
 	HeartIcon,
@@ -7,22 +7,14 @@ import {
 	DotsHorizontalIcon,
 } from "@heroicons/react/solid";
 import cls from "classnames";
+import type { Song } from "@prisma/client";
+
 import styles from "./styles.css";
 
 import PlayerDetails from "./PlayerDetails";
 import PlayerControls from "./PlayerControls";
 
 export const links = () => [{ rel: "stylesheet", href: styles }];
-
-export interface Song {
-	title: string;
-	artist: string;
-	album: string;
-	track: string;
-	year: number;
-	coverSrc: string;
-	src: string;
-}
 
 interface PlayerProps {
 	className?: string;
