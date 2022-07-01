@@ -94,5 +94,25 @@ export function getSongs() {
 				"https://res.cloudinary.com/leonsting/image/upload/v1656657426/taverse/audio_cover/anh_van_thay_ltfwe5.jpg",
 			src: "https://res.cloudinary.com/leonsting/video/upload/v1656657531/taverse/audio/anh_van_thay_iknvp0.mp3",
 		},
+		{
+			title: "Một Ngàn Nỗi Đau",
+			artist: "Văn Mai Hương; Hứa Kim Tuyền",
+			album: "Một Ngàn Nỗi Đau (Single)",
+			track: "Nhạc Điên Khùng",
+			year: 2022,
+			coverSrc:
+				"https://res.cloudinary.com/leonsting/image/upload/v1656663478/taverse/audio_cover/mot_ngan_noi_dau_v0jysu.jpg",
+			src: "https://res.cloudinary.com/leonsting/video/upload/v1656663491/taverse/audio/mot_ngan_noi_dau_j1cr6h.mp3",
+		},
+		{
+			title: "Chưa Quên Người Yêu Cũ (Lofi)",
+			artist: "Hà Nhi; Hứa Kim Tuyền",
+			album: "Chưa Quên Người Yêu Cũ (Lofi) (Single)",
+			track: "Nhạc Điên Khùng",
+			year: 2022,
+			coverSrc:
+				"https://res.cloudinary.com/leonsting/image/upload/v1656663753/taverse/audio_cover/chua_quen_nguoi_yeu_cu_d7ucaq.jpg",
+			src: "https://res.cloudinary.com/leonsting/video/upload/v1656664079/taverse/audio/chua_quen_nguoi_yeu_cu_ibhrrt.mp3",
+		},
 	];
 }
