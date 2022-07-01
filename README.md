@@ -51,7 +51,27 @@ rm -rf app
 # copy your app over
 cp -R ../my-old-remix-app/app app
 ```
+### Dockers
 
+Start các dockers:
+- Redis
+- PostgreSQL 
+
+```ssh
+docker-compose up -d
+```
+
+### Enviroments
+`Supabase` dùng cho production
+
+```
+DATABASE_URL="postgresql://postgres:qVob70zTbz6eh2se@db.vnoejcdcccbirjdiztzh.supabase.co:5432/postgres"
+```
+
+`Local` dùng khi dev
+```
+DATABASE_URL="postgresql://leonsting:321329707@localhost:5432/taverse?schema=public"
+```
 ### Prismas
 
 Sau khi update `schema.prisma` run :
