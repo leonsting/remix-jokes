@@ -4,6 +4,7 @@ import {
 	PlayIcon,
 	FastForwardIcon,
 } from "@heroicons/react/solid";
+import { ShuffleIcon, RepeatIcon } from "~/components/icons";
 
 export interface PlayerControlsProps {
 	isPlaying?: Boolean;
@@ -20,6 +21,14 @@ function PlayerControls({
 }: PlayerControlsProps) {
 	return (
 		<div className="flex justify-center items-center mb-4 gap-2">
+			<button
+				className="btn btn-circle btn-outline btn-info btn-xs"
+				onClick={() => {
+					console.log("shuffle");
+				}}
+			>
+				<ShuffleIcon className="h-4 w-4" />
+			</button>
 			<button
 				className="btn btn-circle btn-outline btn-info btn-xs"
 				onClick={() => next()}
@@ -41,6 +50,14 @@ function PlayerControls({
 				onClick={() => back()}
 			>
 				<FastForwardIcon className="h-5 w-5" />
+			</button>
+			<button
+				className="btn btn-circle btn-outline btn-info btn-xs"
+				onClick={() => {
+					console.log("repeat");
+				}}
+			>
+				<RepeatIcon className="h-4 w-4" />
 			</button>
 		</div>
 	);

@@ -70,7 +70,7 @@ function PlayerDetails({ isPlaying, song, onEnded }: PlayerDetailsProps) {
 				</span>
 				<input
 					type="range"
-					className="range range-primary bg-secondary grow"
+					className="range range-primary range-xs bg-secondary grow"
 					max="100"
 					value={seekerValue}
 					onChange={(event) => {
@@ -84,7 +84,7 @@ function PlayerDetails({ isPlaying, song, onEnded }: PlayerDetailsProps) {
 				</span>
 			</div>
 			<div className="text-center">
-				<h3 className="font-semibold text-xl my-4">{song.title}</h3>
+				<h3 className="font-semibold text-xl my-4" data-text-highlight>{song.title}</h3>
 				<h4 className="font-thin text-xs text-base-300 mb-4">
 					{song.artist}
 				</h4>
