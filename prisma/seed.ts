@@ -84,5 +84,15 @@ export function getSongs() {
 				"https://res.cloudinary.com/leonsting/image/upload/v1656480659/taverse/audio_cover/Shay_Nanggg_ue7uco.jpg",
 			src: "https://res.cloudinary.com/leonsting/video/upload/v1656480723/taverse/audio/Shay_Nanggg_uu4z76.mp3",
 		},
+		{
+			title: "Anh Vẫn Thấy",
+			artist: "Trọng Hiếu",
+			album: "Anh Vẫn Thấy (Single)",
+			track: "Nhạc Điên Khùng",
+			year: 2022,
+			coverSrc:
+				"https://res.cloudinary.com/leonsting/image/upload/v1656657426/taverse/audio_cover/anh_van_thay_ltfwe5.jpg",
+			src: "https://res.cloudinary.com/leonsting/video/upload/v1656657531/taverse/audio/anh_van_thay_iknvp0.mp3",
+		},
 	];
 }
