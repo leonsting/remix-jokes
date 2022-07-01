@@ -43,6 +43,7 @@ export function useAudio(
 	const clearListenTrack = () => {
 		if (listenTracker?.current) {
 			clearInterval(listenTracker.current);
+			listenTracker.current = undefined;
 		}
 	};
 
